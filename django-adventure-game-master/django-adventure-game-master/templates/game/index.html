@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Django Text Game Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Miika Nissi">
+    <meta name="description" content="This website is a fun Django game demo.">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu-container">
+        <a class="menu-button" href="https://miikanissi.com">miikanissi.com</a>
+      </div>  
+      <h1 id="title">Django Games</h1>
+      <div class="btn-grid">
+        {% for game in game_list %}
+        <a class="btn" href="{% url 'game' game.slug %}">{{game.title}}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
